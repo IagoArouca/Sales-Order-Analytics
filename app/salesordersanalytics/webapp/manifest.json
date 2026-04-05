@@ -12,8 +12,7 @@
     "resources": "resources.json",
     "sourceTemplate": {
       "id": "@sap/generator-fiori:alp",
-      "version": "1.22.0",
-      "toolsId": "0dc28718-95c2-425c-b91d-68617769d4c1"
+      "version": "1.22.0"
     },
     "dataSources": {
       "mainService": {
@@ -41,14 +40,6 @@
   },
   "sap.ui": {
     "technology": "UI5",
-    "icons": {
-      "icon": "",
-      "favIcon": "",
-      "phone": "",
-      "phone@2": "",
-      "tablet": "",
-      "tablet@2": ""
-    },
     "deviceTypes": {
       "desktop": true,
       "tablet": true,
@@ -90,9 +81,6 @@
         "uri": "i18n/i18n.properties"
       }
     },
-    "resources": {
-      "css": []
-    },
     "routing": {
       "config": {},
       "routes": [
@@ -116,11 +104,13 @@
             "settings": {
               "contextPath": "/SalesOrders",
               "variantManagement": "Page",
-              "navigation": {
-                "SalesOrders": {
-                  "detail": {
-                    "route": "SalesOrdersObjectPage"
-                  }
+              "initialLoad": "Enabled",
+              "keyPerformanceIndicators": {
+                "TotalRevenueKPI": {
+                  "model": "",
+                  "entitySet": "SalesOrders",
+                  "qualifier": "TotalRevenueDP",
+                  "selectionVariantQualifier": "TotalRevenueSV"
                 }
               },
               "controlConfiguration": {
@@ -168,10 +158,5 @@
   "sap.fiori": {
     "registrationIds": [],
     "archeType": "analytical"
-  },
-  "sap.fe": {
-    "app": {
-      "enableLazyLoading": true
-    }
   }
 }
