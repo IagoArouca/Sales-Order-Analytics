@@ -1,0 +1,23 @@
+{
+  "name": "sales-order-analytics",
+  "version": "1.0.0",
+  "description": "Projeto ALP de Análise de Pedidos de Venda",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap/cds": "^7",
+    "express": "^4"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^1"
+  },
+  "scripts": {
+    "start": "cds-serve"
+  },
+  "cds": {
+    "sql": {
+      "native_typer": true
+    }
+  }
+}
