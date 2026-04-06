@@ -1,4 +1,4 @@
-ID;orderNumber;customer;product;netAmount;deliveryMonth;status
+ID;orderNumber;customer_ID;product_ID;netAmount;deliveryMonth;status
 76137684-297c-47fc-94f3-79d37537b031;500008465;Japan Insurance Partner;Notebook Basic 150;416000.00;January;New
 b0f27464-9665-4286-b6d3-2f8832a88435;500008465;Japan Insurance Partner;Cepat Tablet 10.5;1700.00;January;Delivered
 f47ac10b-58cc-4372-a567-0e02b2c3d479;500008465;Japan Insurance Partner;Astro Laptop 1516;318.00;January;In Process

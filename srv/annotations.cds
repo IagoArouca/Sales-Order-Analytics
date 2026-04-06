@@ -19,11 +19,7 @@ annotate service.SalesOrders with @(
 annotate service.SalesOrders:netAmount with @(
     UI.DataPoint #ChartColorLogic: {
         Value: netAmount,
-        CriticalityCalculation: {
-            ImprovementDirection: #Maximize,
-            DeviationRangeLowValue: 400000,
-            ToleranceRangeLowValue: 400001
-        }
+        Criticality: amountCriticality
     }
 );
 

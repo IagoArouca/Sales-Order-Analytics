@@ -2,17 +2,29 @@ namespace sap.cap.sales;
 
 using { cuid, managed } from '@sap/cds/common';
 
+@cds.autoexpose
+entity Customers {
+    key ID  : String(100) @title : 'ID Cliente';
+    name    : String(100);
+}
+
+@cds.autoexpose
+entity Products {
+    key ID  : String(100) @title : 'ID Produto';
+    name    : String(100);
+}
+
 entity SalesOrders : cuid, managed {
     @title : 'Número do Pedido'
     orderNumber : String(10);
 
     @title : 'Cliente'
     @Analytics.Dimension: true
-    customer : String(100);
+    customer : Association to Customers;
 
     @title : 'Produto'
     @Analytics.Dimension: true
-    product : String(100);
+    product : Association to Products;
 
     @title : 'Valor Liquido'
     @Analytics.Measure: true

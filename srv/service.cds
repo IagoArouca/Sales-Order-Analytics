@@ -17,7 +17,16 @@ service SalesService {
         Rollup: #None,
         PropertyRestrictions: true
     }
-    entity SalesOrders as projection on my.SalesOrders;
+    entity SalesOrders as projection on my.SalesOrders {
+        *,
+
+        product.ID as product,
+        customer.ID as customer,
+        case
+            when netAmount >= 400000 then 3
+            else 1
+        end as amountCriticality : Integer
+    }
 }
 
 annotate SalesService.SalesOrders with @(
