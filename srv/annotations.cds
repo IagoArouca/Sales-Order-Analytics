@@ -25,7 +25,7 @@ annotate service.SalesOrders:netAmount with @(
 
 
 annotate service.SalesOrders with @(
-    UI.SelectionFields: [ customer, deliveryMonth, status ],
+    UI.SelectionFields: [ customer, product, deliveryMonth, status ],
 
     UI.DataPoint #RBQ: {
         Value: netAmount,
@@ -52,7 +52,6 @@ annotate service.SalesOrders with @(
         Value: netAmount,
         Title: 'Total Revenue'
     },
-
 
     UI.SelectionVariant #TotalRevenueSV: {
         Text: 'Revenue Global',
@@ -162,6 +161,22 @@ annotate service.SalesOrders with @(
 );
 
 annotate service.SalesOrders {
+
+    product @Common.ValueList: {
+        CollectionPath: 'Products',
+        Parameters: [
+            { $Type: 'Common.ValueListParameterInOut', LocalDataProperty: product, ValueListProperty: 'ID' }
+        ]
+    };
+
+
+    customer @Common.ValueList: {
+        CollectionPath: 'Customers',
+        Parameters: [
+            { $Type: 'Common.ValueListParameterInOut', LocalDataProperty: customer, ValueListProperty: 'ID' }
+        ]
+    };
+
     deliveryMonth @Common.ValueList #VisualFilter: {
         Label: 'Net Amount by Month',
         CollectionPath: 'SalesOrders',
@@ -188,7 +203,6 @@ annotate service.SalesOrders {
         ]
     };
 };
-
 
 annotate service.SalesOrders with @(
     UI.HeaderInfo: {
