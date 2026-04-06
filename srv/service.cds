@@ -22,5 +22,8 @@ service SalesService {
 
 annotate SalesService.SalesOrders with @(
     Aggregation.CustomAggregate #netAmount: 'SUM',
+    Aggregation.ApplySupported: {
+        AggregatableProperties: [{ Property: netAmount }]
+    },
     Common.SemanticKey: [orderNumber]
 );

@@ -1,5 +1,5 @@
 ID;orderNumber;customer;product;netAmount;deliveryMonth;status
-"a1b2c3d4-1111";"500008465";"Japan Insurance Partner";"Notebook Basic 150";416000.00;"January";"New"
-"a1b2c3d4-2222";"500008465";"Japan Insurance Partner";"Cepat Tablet 10.5";1700.00;"January";"Delivered"
-"a1b2c3d4-3333";"500008465";"Japan Insurance Partner";"Astro Laptop 1516";318.00;"January";"In Process"
-"a1b2c3d4-4444";"500008466";"Global Tech Corp";"Astro Phone 6";56500.00;"July";"New"
+76137684-297c-47fc-94f3-79d37537b031;500008465;Japan Insurance Partner;Notebook Basic 150;416000.00;January;New
+b0f27464-9665-4286-b6d3-2f8832a88435;500008465;Japan Insurance Partner;Cepat Tablet 10.5;1700.00;January;Delivered
+f47ac10b-58cc-4372-a567-0e02b2c3d479;500008465;Japan Insurance Partner;Astro Laptop 1516;318.00;January;In Process
+550e8400-e29b-41d4-a716-446655440000;500008466;Global Tech Corp;Astro Phone 6;56500.00;July;New

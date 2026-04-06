@@ -3,47 +3,14 @@
   "sap.app": {
     "id": "sap.cap.sales.salesordersanalytics",
     "type": "application",
-    "i18n": "i18n/i18n.properties",
-    "applicationVersion": {
-      "version": "0.0.1"
-    },
-    "title": "{{appTitle}}",
-    "description": "{{appDescription}}",
-    "resources": "resources.json",
-    "sourceTemplate": {
-      "id": "@sap/generator-fiori:alp",
-      "version": "1.22.0"
-    },
     "dataSources": {
       "mainService": {
         "uri": "/odata/v4/sales/",
         "type": "OData",
         "settings": {
-          "annotations": [],
           "odataVersion": "4.01"
         }
       }
-    },
-    "crossNavigation": {
-      "inbounds": {
-        "SalesOrder-analyze": {
-          "semanticObject": "SalesOrder",
-          "action": "analyze",
-          "title": "{{SalesOrder-analyze.flpTitle}}",
-          "signature": {
-            "parameters": {},
-            "additionalParameters": "allowed"
-          }
-        }
-      }
-    }
-  },
-  "sap.ui": {
-    "technology": "UI5",
-    "deviceTypes": {
-      "desktop": true,
-      "tablet": true,
-      "phone": true
     }
   },
   "sap.ui5": {
@@ -56,33 +23,17 @@
         "sap.fe.templates": {}
       }
     },
-    "contentDensities": {
-      "compact": true,
-      "cozy": true
-    },
     "models": {
-      "i18n": {
-        "type": "sap.ui.model.resource.ResourceModel",
-        "settings": {
-          "bundleName": "sap.cap.sales.salesordersanalytics.i18n.i18n"
-        }
-      },
       "": {
         "dataSource": "mainService",
         "preload": true,
         "settings": {
           "operationMode": "Server",
-          "autoExpandSelect": true,
-          "earlyRequests": true
+          "autoExpandSelect": true
         }
-      },
-      "@i18n": {
-        "type": "sap.ui.model.resource.ResourceModel",
-        "uri": "i18n/i18n.properties"
       }
     },
     "routing": {
-      "config": {},
       "routes": [
         {
           "pattern": ":?query:",
@@ -105,22 +56,48 @@
               "contextPath": "/SalesOrders",
               "variantManagement": "Page",
               "initialLoad": "Enabled",
+              "showKeyPerformanceIndicators": true,
+
               "keyPerformanceIndicators": {
-                "TotalRevenueKPI": {
-                  "model": "",
+                "RBQ_Tag": {
                   "entitySet": "SalesOrders",
-                  "qualifier": "TotalRevenueDP",
-                  "selectionVariantQualifier": "TotalRevenueSV"
+                  "qualifier": "RBQ"
+                },
+                "PBK_Tag": {
+                  "entitySet": "SalesOrders",
+                  "qualifier": "PBK"
+                },
+                "TQ_Tag": {
+                  "entitySet": "SalesOrders",
+                  "qualifier": "TQ"
+                },
+                "GBP_Tag": {
+                  "entitySet": "SalesOrders",
+                  "qualifier": "GBP"
+                },
+                "GAB_Tag": {
+                  "entitySet": "SalesOrders",
+                  "qualifier": "GAB"
                 }
               },
+
+              "navigation": {
+                "SalesOrders": {
+                  "detail": {
+                    "route": "SalesOrdersObjectPage"
+                  }
+                }
+              },
+
               "controlConfiguration": {
                 "@com.sap.vocabularies.UI.v1.LineItem": {
                   "tableSettings": {
                     "type": "AnalyticalTable",
-                    "selectionMode": "Multi"
+                    "selectionMode": "Single"
                   }
                 }
               },
+
               "views": {
                 "paths": [
                   {
@@ -141,22 +118,18 @@
             }
           }
         },
+
         "SalesOrdersObjectPage": {
           "type": "Component",
           "id": "SalesOrdersObjectPage",
           "name": "sap.fe.templates.ObjectPage",
           "options": {
             "settings": {
-              "editableHeaderContent": false,
               "contextPath": "/SalesOrders"
             }
           }
         }
       }
     }
-  },
-  "sap.fiori": {
-    "registrationIds": [],
-    "archeType": "analytical"
   }
 }
