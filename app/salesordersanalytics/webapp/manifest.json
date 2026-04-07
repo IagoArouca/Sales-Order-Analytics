@@ -3,14 +3,25 @@
   "sap.app": {
     "id": "sap.cap.sales.salesordersanalytics",
     "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
     "dataSources": {
       "mainService": {
         "uri": "/odata/v4/sales/",
         "type": "OData",
         "settings": {
-          "odataVersion": "4.01"
+          "annotations": [],
+          "odataVersion": "4.0"
         }
       }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "sap-icon://sales-order"
     }
   },
   "sap.ui5": {
@@ -23,7 +34,17 @@
         "sap.fe.templates": {}
       }
     },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
     "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "sap.cap.sales.salesordersanalytics.i18n.i18n"
+        }
+      },
       "": {
         "dataSource": "mainService",
         "preload": true,
@@ -33,7 +54,11 @@
         }
       }
     },
+    "resources": {
+      "css": []
+    },
     "routing": {
+      "config": {},
       "routes": [
         {
           "pattern": ":?query:",
@@ -50,37 +75,35 @@
         "SalesOrdersList": {
           "type": "Component",
           "id": "SalesOrdersList",
-          "name": "sap.fe.templates.ListReport",
+          "name": "sap.fe.templates.AnalyticalListPage",
           "options": {
             "settings": {
               "contextPath": "/SalesOrders",
               "variantManagement": "Page",
               "initialLoad": "Enabled",
               "showKeyPerformanceIndicators": true,
-
               "keyPerformanceIndicators": {
-                "RBQ_Tag": {
+                "RBQ": {
                   "entitySet": "SalesOrders",
                   "qualifier": "RBQ"
                 },
-                "PBK_Tag": {
+                "PBK": {
                   "entitySet": "SalesOrders",
                   "qualifier": "PBK"
                 },
-                "TQ_Tag": {
+                "TQ": {
                   "entitySet": "SalesOrders",
                   "qualifier": "TQ"
                 },
-                "GBP_Tag": {
+                "GBP": {
                   "entitySet": "SalesOrders",
                   "qualifier": "GBP"
                 },
-                "GAB_Tag": {
+                "GAB": {
                   "entitySet": "SalesOrders",
                   "qualifier": "GAB"
                 }
               },
-
               "navigation": {
                 "SalesOrders": {
                   "detail": {
@@ -88,7 +111,6 @@
                   }
                 }
               },
-
               "controlConfiguration": {
                 "@com.sap.vocabularies.UI.v1.LineItem": {
                   "tableSettings": {
@@ -97,7 +119,6 @@
                   }
                 }
               },
-
               "views": {
                 "paths": [
                   {
@@ -118,13 +139,13 @@
             }
           }
         },
-
         "SalesOrdersObjectPage": {
           "type": "Component",
           "id": "SalesOrdersObjectPage",
           "name": "sap.fe.templates.ObjectPage",
           "options": {
             "settings": {
+              "editableHeaderContent": false,
               "contextPath": "/SalesOrders"
             }
           }
